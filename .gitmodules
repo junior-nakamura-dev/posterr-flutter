@@ -1,20 +1,20 @@
 [submodule "base_app"]
 	path = base_app
-	url = https://github.com/DeividWillyan/-Curso-Base-APP.git
+	url = https://github.com/junior-nakamura-dev/posterr-flutter-base-app.git
 	branch = master
 [submodule "micro_core"]
 	path = micro_core
-	url = https://github.com/DeividWillyan/-Curso-Micro-Core.git
+	url = https://github.com/junior-nakamura-dev/posterr-flutter-micro-core.git
 	branch = master
 [submodule "micro_app_home"]
 	path = micro_app_home
-	url = https://github.com/DeividWillyan/-Curso-Micro-App-Home.git
+	url = https://github.com/junior-nakamura-dev/posterr-flutter-app-home.git
 	branch = master
 [submodule "micro_app_login"]
 	path = micro_app_login
-	url = https://github.com/DeividWillyan/-Curso-Micro-App-Login.git
+	url = https://github.com/junior-nakamura-dev/posterr-flutter-app-login.git
 	branch = master
 [submodule "micro_commons_design_system"]
 	path = micro_commons_design_system
-	url = https://github.com/DeividWillyan/-Curso-Micro-Commons-Design-System.git
+	url = https://github.com/junior-nakamura-dev/posterr-flutter-commons-design-system.git
 	branch = master

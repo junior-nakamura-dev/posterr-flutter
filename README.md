@@ -1,59 +1,68 @@
-# Definições e Padrões do Projeto
+# Overview
+
+The idea of this project is to evolve the architecture and understand more about micro frontend using flutter, for a business case of a posting application similar to Twitter that will integrate with a backend developed by me following the backend link (https://github.com/junior-nakamura-dev/sboot-posterr).
+
+# Credits
+
+The base micro-app project structure was forked from the profile of my fellow Deivid Willyan one of the biggest influencers in the Flutter community in Brazil this is the following link for his profile https://github.com/DeividWillyan/). I forked from Deivid profile because I understood this is a solid basis to start.
+
+# Step by Step to running the app
+
+1 - Pull all the microapps in your machine. Use the following command below to do it.
+
+- git submodule update --init --recursive
+
+# Archictecture definition & Design Patterns to the project
 
 ![alt text](architecture.png)
 
-Esta documentação encontra-se alguns acordos firmados pelos times de Desenvolvimento envolvidos com a tecnologia Flutter e como sera trabalhado.
-
 ---
-## Versionamento
 
-Lembre-se de no pubspec.yaml sempre atualizar a versão, a tag dev seguir a mesma.
+## Versioning
+
+Don't forget to always update the version tag in pubspec.yaml using the following pattern below.
+
 ```yaml
 version: 1.0.1
 ```
-Deve-se também a cada alteração ser relatado no arquivo CHANGELOG.md as esterações realizadas, versão, data e se disponível a branch.
+
+You must need to log each update did in the project in CHANGELOG.md file using the following pattern below
+
 ```md
 ## [1.0.1] - Fix Dependencies - 21/04/2021 - [fix/fix-dependencies]
-* Foi atualizado as dependencias no no arquivo pubspec.yaml
+
+- Updated dependencies in pubspec.yml file
 ```
-A Forma de versionamento definida foi utilizando Tags.
+
+The versioning is using tags.
+
 ```bash
-Listagem de Tags: git tag -n
-Criação de Tags: git tag 'v<mejor.minor.patch>'
-Enviar as Tags: git push --tags
+List Tags: git tag -n
+Create Tag: git tag 'v<mejor.minor.patch>'
+Push Tags: git push --tags
 ```
-A importação das versões criadas deve ser da seguinte forma:
+
+To import created versions has to following the pattern below:
+
 ```yaml
 dependencies:
   micro_core:
     git:
-      url: https://github.com/DeividWillyan/-Curso-Micro-Core.git
-      ref: v1.0.0 # <- Aqui vai a Tag versionada
+      url: https://github.com/junior-nakamura-dev/posterr-flutter-micro-core.git
+      ref: v1.0.0 # <- Put the versioned tag here
 ```
-| obs: Também pode ser utilizado o dependency_overrides para resolver conflito de versões.
 
-
-Links úteis
-
-- [How to Create Git Tag](https://devconnected.com/how-to-create-git-tags)
-- [Semantic Versioning 2.0.0](https://semver.org/)
+| PS: You can use dependecy_overrides to solve version conflict
 
 ---
-## Arquitetura
 
-descrição da forma da arquitetura
+## Tests
 
-Links úteis
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
----
-## Testes
-
-Utilizaremos 4 formas de testes, Unit, Widget, Integration/Driver e Golden Test.
+We will use 4 approches for testing. Unit test, Widget test, Golden Test and Integration/Driver.
 
 ### Unit Test
-Utilizaremos os testes de unidades para validar tudo que é regra de negocio (códigos puramente dart).
+
+We will use the Unit test to validate the business rule and development logic (Pure dart code)
 
 ```dart
 test('Should LoginController return true in login method with correct values', () async {
@@ -61,8 +70,10 @@ test('Should LoginController return true in login method with correct values', (
     expect(result, true);
 });
 ```
+
 ### Widget Test
-Utilizaremos os testes de Widget para validar se nossas Pages estão renderizando conforme o esperado.
+
+We will use the Widget test to validate the Pages if it is rendering as expected
 
 ```dart
 testWidgets("Should find a single widget per view on screen rendering", (WidgetTester tester) async {
@@ -72,8 +83,10 @@ testWidgets("Should find a single widget per view on screen rendering", (WidgetT
     expect(appBarTitle, findsOneWidget);
 });
 ```
+
 ### Golden Test
-Utilizaremos os testes de Golden para validar se os componentes em nosso Design System estão sendo criados conforme o esperado, tendo um feedback visual rapido e eficiente.
+
+We will use Golden test to validate the components in Design System module. We will look if the components was created as expected with a mockup feedback fast and effective.
 
 ```dart
 // flutter_test_config.dart
@@ -120,8 +133,11 @@ testGoldens("CustomButtonWidget - Multiples Scenarios", (tester) async {
 // RUN
 flutter test --update-goldens
 ```
+
 ### Integration/Driver Test
-Utilizaremos os testes de integração para garantir um completo funcionamento end-to-end.
+
+We will use the Integration/Driver test to ensure the application is working in a end-to-end approach.
+
 ```dart
 // test_driver/integration_test.dart
 import 'package:integration_test/integration_test_driver.dart';
@@ -155,33 +171,15 @@ void main() {
 flutter drive --driver=test_driver/integration_test.dart --target=integration_test/complete_app_test.dart
 
 ```
-Links úteis
 
+Usefull Links
+
+- [How to Create Git Tag](https://devconnected.com/how-to-create-git-tags)
+- [Semantic Versioning 2.0.0](https://semver.org/)
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 - [Flutter Test](https://flutter.dev/docs/testing)
 - [Integration Test](https://flutter.dev/docs/cookbook/testing/integration/introduction)
 - [Golden Test](https://pub.dev/packages/golden_toolkit)
----
-## Code Review
-desrição da forma de versionamento
-
-Links úteis
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
----
-## Scripts 
-desrição da forma de versionamento
-
-Links úteis
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 ---
-### Outros
-desrição da forma de versionamento
-
-Links úteis
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
